@@ -19,7 +19,7 @@ const date=new Date(2026,10,16+i).toLocaleDateString("en-IN",{day:"2-digit",mont
 let html='<div class="daytop"><span>DAY '+String(i+1).padStart(2,"0")+'</span><span>'+date.toUpperCase()+' 2026</span></div><h3>'+safe(g[0])+'</h3><p class="subtitle">'+safe(g[1])+'</p>';
 g[2].forEach((ix,j)=>{
 const a=articles[ix],id=i*2+j;
-html+='<section class="reading"><div class="reading-meta">READING 0'+(j+1)+' · '+safe(a[2])+' · LONG-FORM ESSAY</div><h4>'+safe(a[0])+'</h4><p class="article-theme">'+safe(a[3])+'</p><a class="article-link" href="'+a[1]+'" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL ARTICLE ↗</a><label class="complete"><input type="checkbox" data-id="'+id+'" '+(state.done.includes(id)?"checked":"")+'> Mark reading complete</label>'+analysis(a,j+1)+'</section>';
+html+='<section class="reading"><div class="reading-meta">READING 0'+(j+1)+' · '+safe(a[2])+' · LONG-FORM ESSAY</div><h4>'+safe(a[0])+'</h4><p class="article-theme">'+safe(a[3])+'</p><a class="article-link" href="'+a[1]+'" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL ARTICLE ↗</a><label class="complete"><input type="checkbox" data-id="'+id+'" '+(state.done.includes(id)?"checked":"")+'> Mark reading complete</label>+'<a class="analysis-open" href="analysis.html?id='+ix+'">OPEN FULL ANALYSIS ↗</a></section>';
 });
 card.innerHTML=html;root.appendChild(card);
 });
