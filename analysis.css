@@ -36,3 +36,17 @@
  .analysis-page .vocab-grid{grid-template-columns:1fr}
  .analysis-page footer.analysis-footer{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Standalone page baseline: no dashboard stylesheet is loaded on analysis.html. */
+html,body.analysis-page{margin:0!important;padding:0!important;width:100%;min-height:100%;font-family:"DM Sans",Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+.analysis-page *{box-sizing:border-box}
+.analysis-page .analysis-document{display:block;position:relative;float:none;clear:both}
+.analysis-page .analysis-document p{position:static;float:none;clear:both;white-space:normal;overflow:visible}
+.analysis-page .analysis-document h1,.analysis-page .analysis-document h2,.analysis-page .analysis-document h3{position:static;float:none;clear:both;white-space:normal;overflow-wrap:anywhere}
+.analysis-page .analysis-document section,.analysis-page .analysis-document article,.analysis-page .analysis-document header,.analysis-page .analysis-document footer{position:static;float:none;clear:both}
+.analysis-page .analysis-hero,.analysis-page .analysis-section,.analysis-page .analysis-footer{line-height:1.7}
+.analysis-page .analysis-section h2{margin:12px 0 18px;font-weight:500}
+.analysis-page .analysis-section h3{margin:22px 0 8px;line-height:1.4}
+.analysis-page .analysis-section p,.analysis-page .analysis-section li{line-height:1.85}
+.analysis-page .analysis-nav span{line-height:1.6}
