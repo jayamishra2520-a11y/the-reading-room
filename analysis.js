@@ -15,9 +15,7 @@ const map=[
 ["Complication or counter-view","Look for a concession, competing explanation or limitation. Do not mistake a view the author reports for a view the author endorses."],
 ["Synthesis and implication","Track how the author connects the evidence back to the thesis. The conclusion may qualify the opening claim rather than simply repeat it."]
 ];
-app.innerHTML='<div class="analysis-nav"><a href="index.html">← BACK TO THE READING ROOM</a><span>CAT VARC · READING '+String(id+1).padStart(2,"0")+' / 26</span></div>'+
-'<header class="analysis-hero"><small>'+esc(source)+' · '+esc(theme)+'</small><h1>'+esc(title)+'</h1><p>Read the original essay first. Then use this guide to examine its reasoning, structure and CAT-style inference possibilities.</p><a class="original-link" href="'+esc(url)+'" target="_blank" rel="noopener">OPEN ORIGINAL ARTICLE ↗</a></header>'+
-'<section class="analysis-section"><small>01 / THE CENTRAL ARGUMENT</small><h2>What is the essay really arguing?</h2><p>'+esc(thesis)+'</p><h3>How the argument develops</h3><p>'+esc(argument)+'</p></section>'+
+app.innerHTML='<section class="analysis-section"><small>01 / THE CENTRAL ARGUMENT</small><h2>What is the essay really arguing?</h2><p>'+esc(thesis)+'</p><h3>How the argument develops</h3><p>'+esc(argument)+'</p></section>'+
 '<section class="analysis-section"><small>02 / PARAGRAPH-BY-PARAGRAPH READING METHOD</small><h2>Map the movement of thought</h2><p class="caveat">Use these stages to annotate the corresponding passages in the original essay. They are a close-reading framework, not fabricated paragraph quotations or fixed paragraph numbers.</p>'+
 map.map((m,i)=>'<article class="map-step"><span>0'+(i+1)+'</span><div><h3>'+m[0]+'</h3><p>'+m[1]+'</p></div></article>').join("")+'</section>'+
 '<section class="analysis-section"><small>03 / AUTHOR, SOURCES AND OPPOSING VIEWS</small><h2>Who is saying what?</h2><ul><li><b>Author’s position:</b> '+esc(thesis)+'</li><li><b>Evidence voices:</b> identify researchers, philosophers, historical actors or personal narrators cited. Their claims are evidence or context, not automatically the author’s final view.</li><li><b>Opposing view:</b> find the strongest position the author qualifies or challenges. Record it fairly before noting the author’s response.</li><li><b>Concession:</b> look for limits introduced by words such as although, however, nevertheless, yet and despite.</li></ul></section>'+
@@ -25,21 +23,6 @@ map.map((m,i)=>'<article class="map-step"><span>0'+(i+1)+'</span><div><h3>'+m[0]
 '<section class="analysis-section"><small>05 / VOCABULARY IN CONTEXT</small><h2>Build meaning from context</h2><p>While reading, select five unfamiliar or conceptually important words from the original essay. For each, record the sentence, infer the meaning from context, then check a dictionary. Do not memorise an isolated synonym without its contextual sense.</p><div class="vocab-grid"><div><b>Word / phrase</b><span>Copy from the essay</span></div><div><b>Contextual meaning</b><span>Infer before checking</span></div><div><b>Author’s use</b><span>Why this word here?</span></div></div></section>'+
 '<section class="analysis-section practice"><small>06 / ACTIVE RECALL</small><h2>Close the article. Answer from memory.</h2><ol><li>Summarise the main idea in 3–5 words.</li><li>Write the author’s thesis in one sentence.</li><li>What is the strongest piece of evidence?</li><li>Which alternative view does the author consider?</li><li>What is one tempting but unsupported inference?</li><li>What changed in your understanding after reading?</li></ol><label for="response">YOUR NOTES</label><textarea id="response" placeholder="My main idea, argument map, vocabulary and unresolved questions…"></textarea><button id="saveNotes">SAVE MY ANALYSIS</button><span id="saveStatus"></span></section>'+
 '<footer class="analysis-footer"><a href="index.html">← RETURN TO ALL 26 READINGS</a><a href="'+esc(url)+'" target="_blank" rel="noopener">REVISIT THE ORIGINAL ESSAY ↗</a></footer>';
-const notesSection=document.createElement("section");
-notesSection.className="analysis-section reading-notes";
-notesSection.innerHTML=`<small>01 / ARTICLE ANALYSIS</small><h2>Reading Notes</h2>
-<p><b>Central idea:</b> ${esc(thesis)}</p>
-<p><b>Author’s line of argument:</b> ${esc(argument)}</p>
-<p><b>CAT trap to avoid:</b> ${esc(trap)}</p>
-<div class="analysis-task"><b>After reading — do this without looking back:</b><ol>
-<li>Write the main idea in 3–5 words.</li>
-<li>State the author’s primary claim in one sentence.</li>
-<li>Identify one paragraph that provides evidence and one that qualifies the claim.</li>
-<li>Separate the author’s position from any thinker, researcher or opposing view cited.</li>
-<li>Write one inference that is supported and one tempting inference that goes beyond the passage.</li>
-</ol></div>`;
-const hero=app.querySelector(".analysis-hero");
-if(hero) hero.insertAdjacentElement("afterend",notesSection);
 const key="reading-room-analysis-"+id;
 const field=document.getElementById("response");
 field.value=localStorage.getItem(key)||"";
