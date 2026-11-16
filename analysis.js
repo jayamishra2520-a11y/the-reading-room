@@ -25,6 +25,21 @@ map.map((m,i)=>'<article class="map-step"><span>0'+(i+1)+'</span><div><h3>'+m[0]
 '<section class="analysis-section"><small>05 / VOCABULARY IN CONTEXT</small><h2>Build meaning from context</h2><p>While reading, select five unfamiliar or conceptually important words from the original essay. For each, record the sentence, infer the meaning from context, then check a dictionary. Do not memorise an isolated synonym without its contextual sense.</p><div class="vocab-grid"><div><b>Word / phrase</b><span>Copy from the essay</span></div><div><b>Contextual meaning</b><span>Infer before checking</span></div><div><b>Author’s use</b><span>Why this word here?</span></div></div></section>'+
 '<section class="analysis-section practice"><small>06 / ACTIVE RECALL</small><h2>Close the article. Answer from memory.</h2><ol><li>Summarise the main idea in 3–5 words.</li><li>Write the author’s thesis in one sentence.</li><li>What is the strongest piece of evidence?</li><li>Which alternative view does the author consider?</li><li>What is one tempting but unsupported inference?</li><li>What changed in your understanding after reading?</li></ol><label for="response">YOUR NOTES</label><textarea id="response" placeholder="My main idea, argument map, vocabulary and unresolved questions…"></textarea><button id="saveNotes">SAVE MY ANALYSIS</button><span id="saveStatus"></span></section>'+
 '<footer class="analysis-footer"><a href="index.html">← RETURN TO ALL 26 READINGS</a><a href="'+esc(url)+'" target="_blank" rel="noopener">REVISIT THE ORIGINAL ESSAY ↗</a></footer>';
+const notesSection=document.createElement("section");
+notesSection.className="analysis-section reading-notes";
+notesSection.innerHTML=`<small>01 / ARTICLE ANALYSIS</small><h2>Reading Notes</h2>
+<p><b>Central idea:</b> ${esc(thesis)}</p>
+<p><b>Author’s line of argument:</b> ${esc(argument)}</p>
+<p><b>CAT trap to avoid:</b> ${esc(trap)}</p>
+<div class="analysis-task"><b>After reading — do this without looking back:</b><ol>
+<li>Write the main idea in 3–5 words.</li>
+<li>State the author’s primary claim in one sentence.</li>
+<li>Identify one paragraph that provides evidence and one that qualifies the claim.</li>
+<li>Separate the author’s position from any thinker, researcher or opposing view cited.</li>
+<li>Write one inference that is supported and one tempting inference that goes beyond the passage.</li>
+</ol></div>`;
+const hero=app.querySelector(".analysis-hero");
+if(hero) hero.insertAdjacentElement("afterend",notesSection);
 const key="reading-room-analysis-"+id;
 const field=document.getElementById("response");
 field.value=localStorage.getItem(key)||"";
